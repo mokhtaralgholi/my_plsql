@@ -35,7 +35,7 @@ public class FileListHandler
 };
 /
 
-
+show error
 
 CREATE OR REPLACE PUBLIC SYNONYM FileListHandler FOR SYS.FileListHandler;
 
@@ -49,7 +49,7 @@ NAME 'FileListHandler.list (java.lang.String) return java.lang.String';
 
 END file_list_api;
 /
-
+show error
 COMMIT;
 ALTER PACKAGE SYS.file_list_api COMPILE;
 COMMIT;
@@ -62,7 +62,7 @@ COMMIT;
 CREATE OR REPLACE FUNCTION SYS.get_files (p_dir IN VARCHAR2)
   RETURN t_varchar2_arr PIPELINED
 AS
-  l_array  APEX_APPLICATION_GLOBAL2.vc_arr2;
+  l_array  APEX_APPLICATION_GLOBAL.vc_arr2;
   l_string VARCHAR2(32767);
 BEGIN
   l_array:= APEX_STRING.string_to_table(FILE_LIST_API.list(p_dir), ',');
@@ -73,6 +73,7 @@ BEGIN
   RETURN;
 END;
 /
+show error  
 
 COMMIT;
 ALTER FUNCTION SYS.get_files COMPILE;
